@@ -1,0 +1,9 @@
+h1. GALIA
+
+Genetic Algorithm Library In Actionscript
+
+h2. Project Goals
+
+The primary intent is to create a powerful genetic algorithm library that is easy to use for various problem spaces.
+
+The secondary intent is to make it easy to visualize the execution of genetic algorithms.
