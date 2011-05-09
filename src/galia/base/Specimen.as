@@ -9,8 +9,6 @@ package galia.base
 		private var _chromosome:IChromosome;
 		
 		private var _fitness:Number = 0;
-		private var _standardizedFitness:Number = 0;
-		private var _adjustedFitness:Number;
 		private var _normalizedFitness:Number = 0;
 		private var _accumulatedNormalizedFitness:Number = 0;
 		private var _isFitnessTested:Boolean = false;
@@ -42,23 +40,7 @@ package galia.base
 		public function set fitness(value:Number):void {
 			_fitness = value;
 		}
-		
-		public function get standardizedFitness():Number {
-			return _standardizedFitness;
-		}
-		
-		public function set standardizedFitness(value:Number):void {
-			_standardizedFitness = value;
-		}
-		
-		public function get adjustedFitness():Number {
-			return _adjustedFitness;
-		}
-		
-		public function set adjustedFitness(value:Number):void {
-			_adjustedFitness = value;
-		}
-		
+				
 		public function get normalizedFitness():Number {
 			return _normalizedFitness;
 		}

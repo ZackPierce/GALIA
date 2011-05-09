@@ -15,12 +15,6 @@ package galia.core
 		function get fitness():Number;
 		function set fitness(value:Number):void;
 		
-		function get standardizedFitness():Number;
-		function set standardizedFitness(value:Number):void;
-		
-		function get adjustedFitness():Number;
-		function set adjustedFitness(value:Number):void;
-		
 		function get normalizedFitness():Number;
 		function set normalizedFitness(value:Number):void;
 		
