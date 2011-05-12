@@ -30,7 +30,7 @@ package galia.selection
 			}
 			
 			var selectedSpecimens:Array = [];
-			SelectionUtil.calculatedNormalizedAndAccumulatedNormalizedFitnessesValues(specimens);
+			SelectionUtil.calculateNormalizedAndAccumulatedNormalizedFitnessesValues(specimens);
 			while (selectedSpecimens.length < numberOfSelections) {
 				var spinPoint:Number = randomNumberGenerator.random();
 				// TODO - implement more efficient binary search

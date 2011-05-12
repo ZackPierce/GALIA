@@ -14,8 +14,9 @@ package galia.selection
 		
 		private var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
 		
-		public function TournamentSelector(tournamentSize:uint = 2, bestSelectionProbability:Number = 1.0)
+		public function TournamentSelector(numberOfSelections:uint = 0, tournamentSize:uint = 2, bestSelectionProbability:Number = 1.0)
 		{
+			this.numberOfSelections = numberOfSelections;
 			this.tournamentSize = tournamentSize;
 			this.bestSelectionProbability = bestSelectionProbability;
 		}

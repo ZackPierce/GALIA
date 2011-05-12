@@ -84,6 +84,18 @@ package galia.selection
 		}
 		
 		[Test]
+		public function sortSpecimensByFitnessDescendingNonIntegerMix():void {
+			specimenA.fitness = 1;
+			specimenB.fitness = 2;
+			specimenC.fitness = 2.5;
+			specimens = [specimenA, specimenB, specimenC];
+			SelectionUtil.sortSpecimensByFitness(specimens, Array.DESCENDING);
+			Assert.assertTrue('Specimen A is in the right position', specimens.indexOf(specimenA) == 2);
+			Assert.assertTrue('Specimen B is in the right position', specimens.indexOf(specimenB) == 1);
+			Assert.assertTrue('Specimen C is in the right position', specimens.indexOf(specimenC) == 0);
+		}
+		
+		[Test]
 		public function sortSpecimensByFitnessReverseOrdered():void {
 			specimenA.fitness = 3;
 			specimenB.fitness = 2;
@@ -130,7 +142,7 @@ package galia.selection
 			
 			specimens = [specimenA, specimenB, specimenC, specimenD];
 			
-			SelectionUtil.calculatedNormalizedAndAccumulatedNormalizedFitnessesValues(specimens);
+			SelectionUtil.calculateNormalizedAndAccumulatedNormalizedFitnessesValues(specimens);
 			
 			Assert.assertTrue('Specimen A normalized fitness calculated properly', specimenA.normalizedFitness == 0.0);
 			Assert.assertTrue('Specimen B normalized fitness calculated properly', specimenB.normalizedFitness == 1.0/6.0);
