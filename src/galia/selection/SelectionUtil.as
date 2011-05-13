@@ -36,7 +36,7 @@ package galia.selection
 		 * @param rawFitnessSum The optional pre-calculated sum of all of the fitness property values of the input specimens array 
 		 */
 		public static function calculateNormalizedAndAccumulatedNormalizedFitnessesValues(specimens:Array, rawFitnessSum:Number = 0):void {
-			if (!specimens) {
+			if (!specimens || specimens.length == 0) {
 				return;
 			}
 			var localRawFitnessSum:Number = rawFitnessSum;
@@ -44,16 +44,15 @@ package galia.selection
 				for each (var specimen:ISpecimen in specimens) {
 					localRawFitnessSum += specimen.fitness;
 				}
-				if (localRawFitnessSum == 0) {
-					return;
-				}
 			}
 			
 			sortSpecimensByFitness(specimens);
 			
 			var accumulatedNormalizedFitness:Number = 0;
+			var useUniformNormalizedFitness:Boolean = localRawFitnessSum == 0; // If all fitness values were zero, use a fallback normalizedFitness value
+			var uniformNormalizedFitness:Number = 1.0 / specimens.length;
 			for each (var specimenAgain:ISpecimen in specimens) {
-				specimenAgain.normalizedFitness = specimenAgain.fitness / localRawFitnessSum;
+				specimenAgain.normalizedFitness = useUniformNormalizedFitness ? uniformNormalizedFitness : specimenAgain.fitness / localRawFitnessSum;
 				accumulatedNormalizedFitness += specimenAgain.normalizedFitness;
 				specimenAgain.accumulatedNormalizedFitness = accumulatedNormalizedFitness;
 			}

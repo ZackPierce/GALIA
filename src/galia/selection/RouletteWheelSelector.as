@@ -8,7 +8,7 @@ package galia.selection
 	
 	public class RouletteWheelSelector implements ISelector
 	{
-		public var numberOfSelections:uint;
+		private var _numberOfSelections:uint;
 		
 		private var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
 		
@@ -17,24 +17,36 @@ package galia.selection
 			this.numberOfSelections = numberOfSelections;
 		}
 		
-		public function selectSurvivors(population:IPopulation):Array {
-			if (!population) {
-				return [];
-			}
-			
-			var specimens:Array = population.specimens;
+		/**
+		 * @inheritDoc
+		 */
+		public function get numberOfSelections():uint {
+			return _numberOfSelections;
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		public function set numberOfSelections(value:uint):void {
+			this._numberOfSelections = value;
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		public function selectSurvivors(specimens:Array):Array {
 			if (!specimens || specimens.length == 0 || numberOfSelections == 0) {
 				return [];
-			} else {
-				specimens = specimens.concat();
 			}
 			
+			var localSpecimens:Array = specimens.concat();
 			var selectedSpecimens:Array = [];
-			SelectionUtil.calculateNormalizedAndAccumulatedNormalizedFitnessesValues(specimens);
+			SelectionUtil.calculateNormalizedAndAccumulatedNormalizedFitnessesValues(localSpecimens);
+			
 			while (selectedSpecimens.length < numberOfSelections) {
 				var spinPoint:Number = randomNumberGenerator.random();
 				// TODO - implement more efficient binary search
-				for each (var specimen:ISpecimen in specimens) {
+				for each (var specimen:ISpecimen in localSpecimens) {
 					if (specimen.accumulatedNormalizedFitness >= spinPoint) {
 						selectedSpecimens.push(specimen);
 						break;

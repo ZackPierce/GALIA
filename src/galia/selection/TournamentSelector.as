@@ -7,9 +7,9 @@ package galia.selection
 	
 	public class TournamentSelector implements ISelector
 	{
-		public var numberOfSelections:uint;
 		public var tournamentSize:uint = 2;
 		
+		private var _numberOfSelections:uint;
 		private var _bestSelectionProbability:Number = 1.0; 
 		
 		private var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
@@ -37,20 +37,31 @@ package galia.selection
 			this._bestSelectionProbability = Math.max(0, Math.min(1.0, value));
 		}
 		
-		public function selectSurvivors(population:IPopulation):Array {
-			if (!population) {
-				return [];
-			}
-			
-			var specimens:Array = population.specimens;
+		/**
+		 * @inheritDoc
+		 */
+		public function get numberOfSelections():uint {
+			return _numberOfSelections;
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		public function set numberOfSelections(value:uint):void {
+			this._numberOfSelections = value;
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		public function selectSurvivors(specimens:Array):Array {
 			if (!specimens || specimens.length == 0 || numberOfSelections == 0 || tournamentSize == 0) {
 				return [];
-			} else {
-				specimens = specimens.concat();
 			}
 			
+			var localSpecimens:Array = specimens.concat();
 			var selectedSpecimens:Array = [];
-			var availableSpecimensLength:uint = specimens.length;
+			var availableSpecimensLength:uint = localSpecimens.length;
 			var p:Number = bestSelectionProbability;
 			var oneMinusP:Number = 1.0 - bestSelectionProbability;
 			
@@ -65,7 +76,7 @@ package galia.selection
 			while (selectedSpecimens.length < numberOfSelections) {
 				var tournamentParticipants:Array = [];
 				for (var k:int = 0; k < tournamentSize; k++) {
-					tournamentParticipants.push(specimens[randomNumberGenerator.integer(0, availableSpecimensLength)]);
+					tournamentParticipants.push(localSpecimens[randomNumberGenerator.integer(0, availableSpecimensLength)]);
 				}
 				SelectionUtil.sortSpecimensByFitness(tournamentParticipants, Array.NUMERIC | Array.DESCENDING);
 				var splitPoint:Number = randomNumberGenerator.random();
