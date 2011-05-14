@@ -6,35 +6,17 @@ package galia.selection
 	import galia.core.ISelector;
 	import galia.core.ISpecimen;
 	
-	public class RouletteWheelSelector implements ISelector
+	public class RouletteWheelSelector extends BaseSelector implements ISelector
 	{
-		private var _numberOfSelections:uint;
-		
-		private var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
-		
 		public function RouletteWheelSelector(numberOfSelections:Number = 0)
 		{
-			this.numberOfSelections = numberOfSelections;
+			super(numberOfSelections);
 		}
 		
 		/**
 		 * @inheritDoc
 		 */
-		public function get numberOfSelections():uint {
-			return _numberOfSelections;
-		}
-		
-		/**
-		 * @inheritDoc
-		 */
-		public function set numberOfSelections(value:uint):void {
-			this._numberOfSelections = value;
-		}
-		
-		/**
-		 * @inheritDoc
-		 */
-		public function selectSurvivors(specimens:Array):Array {
+		override public function selectSurvivors(specimens:Array):Array {
 			if (!specimens || specimens.length == 0 || numberOfSelections == 0) {
 				return [];
 			}
@@ -54,10 +36,6 @@ package galia.selection
 				}
 			}
 			return selectedSpecimens;
-		}
-		
-		public function set seed(value:uint):void {
-			randomNumberGenerator.seed = value;
 		}
 	}
 }

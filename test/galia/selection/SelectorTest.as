@@ -31,12 +31,19 @@ package galia.selection
 			seed = 2;
 			specimens = [];
 			specimenA = new Specimen();
+			specimenA.id = 'A';
 			specimenB = new Specimen();
+			specimenB.id = 'B';
 			specimenC = new Specimen();
+			specimenC.id = 'C';
 			specimenD = new Specimen();
+			specimenD.id = 'D';
 			specimenE = new Specimen();
+			specimenE.id = 'E';
 			specimenF = new Specimen();
+			specimenF.id = 'F';
 			specimenG = new Specimen();
+			specimenG.id = 'G';
 		}
 		
 		[After]

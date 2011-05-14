@@ -7,37 +7,25 @@ package galia.selection
 	import galia.core.ISelector;
 	import galia.core.ISpecimen;
 	
-	public class RankBasedSelector implements ISelector
+	public class RankBasedSelector extends BaseSelector implements ISelector
 	{
-		private var _numberOfSelections:uint;
 		private var _helperSelector:ISelector;
-		
-		private var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
 		
 		public function RankBasedSelector(numberOfSelections:uint = 0, helperSelector:ISelector = null)
 		{
-			this.numberOfSelections = numberOfSelections;
-			this._helperSelector = helperSelector;
+			super(numberOfSelections);
+			if (helperSelector) {
+				this._helperSelector = helperSelector;
+			} else {
+				this._helperSelector = generateDefaultHelperSelector();
+			}
+			
 		}
 		
 		/**
 		 * @inheritDoc
 		 */
-		public function get numberOfSelections():uint {
-			return _numberOfSelections;
-		}
-		
-		/**
-		 * @inheritDoc
-		 */
-		public function set numberOfSelections(value:uint):void {
-			this._numberOfSelections = value;
-		}
-		
-		/**
-		 * @inheritDoc
-		 */
-		public function selectSurvivors(specimens:Array):Array {
+		override public function selectSurvivors(specimens:Array):Array {
 			if (!specimens || specimens.length == 0 || numberOfSelections == 0) {
 				return [];
 			}
@@ -107,14 +95,6 @@ package galia.selection
 		
 		protected function generateDefaultHelperSelector():ISelector {
 			return new StochasticUniversalSamplingSelector(this.numberOfSelections);
-		} 
-		
-		public function get seed():uint {
-			return randomNumberGenerator.seed;
-		}
-		
-		public function set seed(value:uint):void {
-			randomNumberGenerator.seed = value;
 		} 
 	}
 }

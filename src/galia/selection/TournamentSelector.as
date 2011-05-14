@@ -5,18 +5,15 @@ package galia.selection
 	import galia.core.IPopulation;
 	import galia.core.ISelector;
 	
-	public class TournamentSelector implements ISelector
+	public class TournamentSelector extends BaseSelector implements ISelector
 	{
 		public var tournamentSize:uint = 2;
 		
-		private var _numberOfSelections:uint;
 		private var _bestSelectionProbability:Number = 1.0; 
-		
-		private var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
 		
 		public function TournamentSelector(numberOfSelections:uint = 0, tournamentSize:uint = 2, bestSelectionProbability:Number = 1.0)
 		{
-			this.numberOfSelections = numberOfSelections;
+			super(numberOfSelections);
 			this.tournamentSize = tournamentSize;
 			this.bestSelectionProbability = bestSelectionProbability;
 		}
@@ -40,21 +37,7 @@ package galia.selection
 		/**
 		 * @inheritDoc
 		 */
-		public function get numberOfSelections():uint {
-			return _numberOfSelections;
-		}
-		
-		/**
-		 * @inheritDoc
-		 */
-		public function set numberOfSelections(value:uint):void {
-			this._numberOfSelections = value;
-		}
-		
-		/**
-		 * @inheritDoc
-		 */
-		public function selectSurvivors(specimens:Array):Array {
+		override public function selectSurvivors(specimens:Array):Array {
 			if (!specimens || specimens.length == 0 || numberOfSelections == 0 || tournamentSize == 0) {
 				return [];
 			}
@@ -90,13 +73,5 @@ package galia.selection
 			
 			return selectedSpecimens;
 		}
-		
-		public function get seed():uint {
-			return randomNumberGenerator.seed;
-		}
-		
-		public function set seed(value:uint):void {
-			randomNumberGenerator.seed = value;
-		} 
 	}
 }

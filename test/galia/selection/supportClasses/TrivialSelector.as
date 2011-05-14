@@ -4,10 +4,11 @@ package galia.selection.supportClasses
 	
 	public class TrivialSelector implements ISelector
 	{
-		private var _numberOfSelections:uint = 0;
+		protected var _numberOfSelections:uint = 0;
 		
-		public function TrivialSelector()
+		public function TrivialSelector(numberOfSelections:uint = 0)
 		{
+			this._numberOfSelections = numberOfSelections;
 		}
 		
 		public function selectSurvivors(specimens:Array):Array
