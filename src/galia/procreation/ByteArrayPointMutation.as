@@ -17,7 +17,7 @@ package galia.procreation
 		}
 		
 		public function procreate(parentChromosomes:Array):Array {
-			if (!parentChromosomes || parentChromosomes.length == 0) {
+			if (!parentChromosomes || parentChromosomes.length < numberOfParentsRequired) {
 				return [];
 			}
 			var children:Array = [];
