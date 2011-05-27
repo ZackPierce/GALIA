@@ -190,11 +190,5 @@ package galia.procreation
 				}
 			}
 		}
-		
-		[Test]
-		public function testProcreate():void
-		{
-			Assert.fail("Test method Not yet implemented");
-		}
 	}
 }

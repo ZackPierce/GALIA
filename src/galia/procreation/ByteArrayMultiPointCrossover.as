@@ -22,13 +22,22 @@ package galia.procreation
 				return [];
 			}
 			var children:Array = [];
+			var numberOfParents:uint = parentChromosomes.length;
 			var scrap:ByteArray = new ByteArray();
-			for (var i:int = 0; i < parentChromosomes.length - 1; i += 2) {
+			for (var i:int = 0; i < numberOfParents; i += 2) {
 				var parentA:ByteArray = parentChromosomes[i];
-				var parentB:ByteArray = parentChromosomes[i + 1];
+				var parentB:ByteArray; 
+				if (i < numberOfParents - 1) {
+					parentB = parentChromosomes[i + 1];
+				} else {
+					parentB = parentChromosomes[randomNumberGenerator.integer(0, i + 1)];
+				}
 				var kidA:ByteArrayChromosome = new ByteArrayChromosome(parentA);
 				var kidB:ByteArrayChromosome = new ByteArrayChromosome(parentB);
-				children.push(kidA, kidB);
+				children.push(kidA);
+				if (children.length < numberOfParents) {
+					children.push(kidB);
+				}
 				var chromosomeLength:uint = parentA.length;
 				if (chromosomeLength < 1) {
 					continue;

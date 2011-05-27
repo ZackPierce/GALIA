@@ -3,7 +3,10 @@ package galia.core
 	public interface IProcreationOperator
 	{
 		/**
-		 * Produces new children chromosomes using parent chromosomes
+		 * Produces new children chromosomes using parent chromosomes.
+		 * 
+		 * @param parentChromosomes An Array of objects of type IChromosome used in the creation of children 
+		 * @return An array of objects of type IChromosome with at least the same length as the input parentChromosomes
 		 */
 		function procreate(parentChromosomes:Array):Array;
 		
