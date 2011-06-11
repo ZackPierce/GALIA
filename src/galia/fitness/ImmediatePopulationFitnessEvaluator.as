@@ -13,22 +13,14 @@ package galia.fitness
 	 */
 	public class ImmediatePopulationFitnessEvaluator implements IPopulationFitnessEvaluator
 	{
+		public var specimenFitnessEvaluator:ISpecimenFitnessEvaluator;
+		
 		private var _populationFitnessEvaluated:PopulationFitnessEvaluated = new PopulationFitnessEvaluated();
 		private var unevaluatedSpecimens:Array;
 		private var evaluatedSpecimens:Array;
 		
-		public var specimenFitnessEvaluator:ISpecimenFitnessEvaluator;
-		
 		public function ImmediatePopulationFitnessEvaluator(specimenFitnessEvaluator:ISpecimenFitnessEvaluator = null) {
-			if (specimenFitnessEvaluator) {
-				this.specimenFitnessEvaluator = specimenFitnessEvaluator;
-			} else {
-				this.specimenFitnessEvaluator = generateDefaultSpecimenFitnessEvaluator();
-			}
-		}
-		
-		protected function generateDefaultSpecimenFitnessEvaluator():ISpecimenFitnessEvaluator {
-			return new DummySynchronousSpecimenFitnessEvaluator();
+			this.specimenFitnessEvaluator = specimenFitnessEvaluator;
 		}
 		
 		public function evaluatePopulationFitness(specimens:Array):void {
@@ -74,15 +66,5 @@ package galia.fitness
 		public function set populationFitnessEvaluated(populationFitnessEvaluatedSignal:PopulationFitnessEvaluated):void {
 			_populationFitnessEvaluated = populationFitnessEvaluatedSignal;
 		}
-	}
-}
-import galia.core.ISpecimen;
-import galia.core.ISpecimenFitnessEvaluator;
-
-internal class DummySynchronousSpecimenFitnessEvaluator implements ISpecimenFitnessEvaluator
-{
-	public function evaluateSpecimen(specimen:ISpecimen):void {
-		specimen.fitness = 1;
-		specimen.isFitnessTested = true;
 	}
 }

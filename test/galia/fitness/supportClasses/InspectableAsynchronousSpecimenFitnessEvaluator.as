@@ -10,7 +10,7 @@ package galia.fitness.supportClasses
 	
 	public class InspectableAsynchronousSpecimenFitnessEvaluator implements IAsynchronousSpecimenFitnessEvaluator
 	{
-		public var specimensEvaluationStarted:Array = []
+		public var specimensEvaluationActive:Array = []
 		public var specimensEvaluationCompleted:Array = [];
 		
 		protected static var frameSprite:Sprite = new Sprite();
@@ -22,13 +22,15 @@ package galia.fitness.supportClasses
 		}
 		
 		public function evaluateSpecimen(specimen:ISpecimen):void {
-			specimensEvaluationStarted.push(specimen);
+			specimensEvaluationActive.push(specimen);
 			frameSprite.addEventListener(Event.ENTER_FRAME, frameEnterHandler, false, 0, true);
 		}
 		
 		private function frameEnterHandler(event:Event):void {
 			frameSprite.removeEventListener(Event.ENTER_FRAME, frameEnterHandler, false);
-			for each (var specimen:ISpecimen in specimensEvaluationStarted) {
+			for (var i:int = specimensEvaluationActive.length - 1; i >= 0; i--) {
+				var specimen:ISpecimen = specimensEvaluationActive[i];
+				specimensEvaluationActive.splice(specimensEvaluationActive.indexOf(specimen), 1);
 				var index:int = specimensEvaluationCompleted.indexOf(specimen);
 				if (index == -1) {
 					specimen.fitness = 1;
