@@ -46,19 +46,19 @@ package galia.populationEvolution
 		[Test]
 		public function testEvolvePopulationNullSpecimens():void {
 			inputSpecimens = null;
-			targetPopulationSize = 3
+			targetPopulationSize = 3;
 			var outputPopulation:Array = serialPopulationEvolution.evolvePopulation(inputSpecimens, targetPopulationSize);
 			Assert.assertNotNull('Output population should not be null even if the input specimen array is null', outputPopulation);
-			Assert.assertStrictlyEquals('Number of output specimens should match the target population size', targetPopulationSize, outputPopulation.length);
+			Assert.assertStrictlyEquals('Number of output specimens should be zero if the input specimen array is null', 0, outputPopulation.length);
 		}
 		
 		[Test]
 		public function testEvolvePopulationEmptySpecimens():void {
 			inputSpecimens = [];
-			targetPopulationSize = 3
+			targetPopulationSize = 3;
 			var outputPopulation:Array = serialPopulationEvolution.evolvePopulation(inputSpecimens, targetPopulationSize);
 			Assert.assertNotNull('Output population should not be null even if the input specimen array is empty', outputPopulation);
-			Assert.assertStrictlyEquals('Number of output specimens should match the target population size', targetPopulationSize, outputPopulation.length);
+			Assert.assertStrictlyEquals('Number of output specimens should be zero if the input specimen array is null', 0, outputPopulation.length);
 		}
 		
 		[Test]

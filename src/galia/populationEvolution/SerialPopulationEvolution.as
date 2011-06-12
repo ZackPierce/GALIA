@@ -11,7 +11,10 @@ package galia.populationEvolution
 		}
 		
 		public function evolvePopulation(specimens:Array, targetPopulationSize:uint):Array {
-			var population:Array = specimens;
+			if (!specimens || specimens.length == 0) {
+				return [];
+			}
+			var population:Array = specimens.concat();
 			for (var i:int = 0; i < populationEvolutionOperators.length; i++) {
 				var currentPopulationEvolutionOperator:IPopulationEvolutionOperator = populationEvolutionOperators[i] as IPopulationEvolutionOperator;
 				if (!currentPopulationEvolutionOperator) {
