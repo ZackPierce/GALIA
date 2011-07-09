@@ -17,8 +17,7 @@ package galia.procreation
 		private var kids:Array;
 		
 		[Before]
-		public function setUp():void
-		{
+		public function setUp():void {
 			byteArrayMultiPointCrossover = new ByteArrayMultiPointCrossover();
 			seed = 5000;
 			byteArrayMultiPointCrossover.seed = seed;
@@ -41,8 +40,7 @@ package galia.procreation
 		}
 		
 		[After]
-		public function tearDown():void
-		{
+		public function tearDown():void {
 			byteArrayMultiPointCrossover = null;
 			chromosomeA = null;
 			chromosomeB = null;
@@ -52,13 +50,11 @@ package galia.procreation
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		[Test]

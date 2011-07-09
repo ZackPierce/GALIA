@@ -9,8 +9,7 @@ package galia.populationEvolution.supportClasses
 		
 		public var procreationExecuted:Boolean = false;
 		
-		public function TrivialChromosomeProcreationOperator()
-		{
+		public function TrivialChromosomeProcreationOperator() {
 		}
 		
 		public function procreate(parentChromosomes:Array):Array {

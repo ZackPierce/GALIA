@@ -4,8 +4,7 @@ package galia.selection
 
 	public class SelectionUtil
 	{
-		public function SelectionUtil()
-		{
+		public function SelectionUtil() {
 		}
 		
 		/**

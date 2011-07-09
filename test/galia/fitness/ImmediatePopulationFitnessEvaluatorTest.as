@@ -24,8 +24,7 @@ package galia.fitness
 		private var specimens:Array;
 		
 		[Before]
-		public function setUp():void
-		{
+		public function setUp():void {
 			immediatePopulationFitnessEvaluator = new ImmediatePopulationFitnessEvaluator();
 			synchronousSpecimenFitnessEvaluator = new InspectableSynchronousSpecimenFitnessEvaluator();
 			asynchronousSpecimenFitnessEvaluator = new InspectableAsynchronousSpecimenFitnessEvaluator();
@@ -38,8 +37,7 @@ package galia.fitness
 		}
 		
 		[After]
-		public function tearDown():void
-		{
+		public function tearDown():void {
 			immediatePopulationFitnessEvaluator = null;
 			synchronousSpecimenFitnessEvaluator = null;
 			asynchronousSpecimenFitnessEvaluator = null;
@@ -47,18 +45,15 @@ package galia.fitness
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		[Test(async, 'Null specimens array should still result in a populationFitnessEvaluated dispatch')]
-		public function testEvaluatePopulationFitnessNullSpecimensArray():void
-		{
+		public function testEvaluatePopulationFitnessNullSpecimensArray():void {
 			specimens = null;
 			handleSignal(this, immediatePopulationFitnessEvaluator.populationFitnessEvaluated, populationFitnessEvaluatedHandlerConfirmNullSpecimensDispatched);
 			immediatePopulationFitnessEvaluator.evaluatePopulationFitness(specimens);
@@ -69,8 +64,7 @@ package galia.fitness
 		}
 		
 		[Test(async, 'Empty specimens array should still result in a populationFitnessEvaluated dispatch')]
-		public function testEvaluatePopulationFitnessEmptySpecimensArray():void
-		{
+		public function testEvaluatePopulationFitnessEmptySpecimensArray():void {
 			specimens = [];
 			handleSignal(this, immediatePopulationFitnessEvaluator.populationFitnessEvaluated, populationFitnessEvaluatedHandlerConfirmSameSpecimensDispatched);
 			immediatePopulationFitnessEvaluator.evaluatePopulationFitness(specimens);
@@ -97,16 +91,14 @@ package galia.fitness
 		}
 		
 		[Test(async)]
-		public function testEvaluatePopulationFitnessSynchronousSpecimenFitnessEvaluator():void
-		{
+		public function testEvaluatePopulationFitnessSynchronousSpecimenFitnessEvaluator():void {
 			immediatePopulationFitnessEvaluator.specimenFitnessEvaluator = synchronousSpecimenFitnessEvaluator;
 			handleSignal(this, immediatePopulationFitnessEvaluator.populationFitnessEvaluated, populationFitnessEvaluatedHandlerConfirmSameSpecimensDispatched);
 			immediatePopulationFitnessEvaluator.evaluatePopulationFitness(specimens);
 		}
 		
 		[Test(async)]
-		public function testEvaluatePopulationFitnessAsynchronousSpecimenFitnessEvaluator():void
-		{
+		public function testEvaluatePopulationFitnessAsynchronousSpecimenFitnessEvaluator():void {
 			immediatePopulationFitnessEvaluator.specimenFitnessEvaluator = asynchronousSpecimenFitnessEvaluator;
 			handleSignal(this, immediatePopulationFitnessEvaluator.populationFitnessEvaluated, populationFitnessEvaluatedHandlerConfirmSameSpecimensDispatched);
 			immediatePopulationFitnessEvaluator.evaluatePopulationFitness(specimens);

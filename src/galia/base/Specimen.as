@@ -13,8 +13,7 @@ package galia.base
 		private var _accumulatedNormalizedFitness:Number = 0;
 		private var _isFitnessTested:Boolean = false;
 		
-		public function Specimen()
-		{
+		public function Specimen() {
 		}
 		
 		public function get id():String {

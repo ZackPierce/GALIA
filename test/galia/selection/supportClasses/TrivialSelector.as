@@ -6,13 +6,11 @@ package galia.selection.supportClasses
 	{
 		protected var _numberOfSelections:uint = 0;
 		
-		public function TrivialSelector(numberOfSelections:uint = 0)
-		{
+		public function TrivialSelector(numberOfSelections:uint = 0) {
 			this._numberOfSelections = numberOfSelections;
 		}
 		
-		public function selectSurvivors(specimens:Array):Array
-		{
+		public function selectSurvivors(specimens:Array):Array {
 			if (!specimens || specimens.length == 0 || numberOfSelections == 0) {
 				return [];
 			}
@@ -23,13 +21,11 @@ package galia.selection.supportClasses
 			return selectedSpecimens;
 		}
 		
-		public function get numberOfSelections():uint
-		{
+		public function get numberOfSelections():uint {
 			return _numberOfSelections;
 		}
 		
-		public function set numberOfSelections(value:uint):void
-		{
+		public function set numberOfSelections(value:uint):void {
 			_numberOfSelections = value;
 		}
 	}

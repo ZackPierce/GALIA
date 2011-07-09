@@ -25,8 +25,7 @@ package galia.selection
 		protected var specimenG:ISpecimen;
 		
 		[Before]
-		public function setUp():void
-		{
+		public function setUp():void {
 			selector = new TrivialSelector();
 			seed = 2;
 			specimens = [];
@@ -47,8 +46,7 @@ package galia.selection
 		}
 		
 		[After]
-		public function tearDown():void
-		{
+		public function tearDown():void {
 			selector = null;
 			seed = DEFAULT_SEED;
 			specimens = null;
@@ -62,17 +60,14 @@ package galia.selection
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
-		public function SelectorTest()
-		{
+		public function SelectorTest() {
 		}
 		
 		[Test]
@@ -96,8 +91,7 @@ package galia.selection
 		}
 		
 		[Test]
-		public function testSelectOneSurvivorOneSpecimen():void
-		{
+		public function testSelectOneSurvivorOneSpecimen():void {
 			specimenA.fitness = 1;
 			specimens = [specimenA];
 			selector.numberOfSelections = 1;
@@ -109,8 +103,7 @@ package galia.selection
 		}
 		
 		[Test]
-		public function testSelectThreeSurvivorsOnePossibleSpecimen():void
-		{
+		public function testSelectThreeSurvivorsOnePossibleSpecimen():void {
 			specimenA.fitness = 1;
 			specimens = [specimenA];
 			selector.numberOfSelections = 3;
@@ -124,8 +117,7 @@ package galia.selection
 		}
 		
 		[Test]
-		public function testSelectOneSurvivorOneSpecimenZeroFitness():void
-		{
+		public function testSelectOneSurvivorOneSpecimenZeroFitness():void {
 			specimenA.fitness = 0;
 			specimens = [specimenA];
 			selector.numberOfSelections = 1;
@@ -137,8 +129,7 @@ package galia.selection
 		}
 		
 		[Test]
-		public function testSelectThreeSurvivorsOnePossibleSpecimenZeroFitness():void
-		{
+		public function testSelectThreeSurvivorsOnePossibleSpecimenZeroFitness():void {
 			specimenA.fitness = 0;
 			specimens = [specimenA];
 			selector.numberOfSelections = 3;

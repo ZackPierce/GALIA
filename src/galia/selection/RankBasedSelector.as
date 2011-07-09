@@ -11,8 +11,7 @@ package galia.selection
 	{
 		private var _helperSelector:ISelector;
 		
-		public function RankBasedSelector(numberOfSelections:uint = 0, helperSelector:ISelector = null)
-		{
+		public function RankBasedSelector(numberOfSelections:uint = 0, helperSelector:ISelector = null) {
 			super(numberOfSelections);
 			if (helperSelector) {
 				this._helperSelector = helperSelector;

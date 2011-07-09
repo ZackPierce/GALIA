@@ -14,13 +14,11 @@ package galia.populationEvolution.supportClasses
 		public var specimenIdPrefix:String = '';
 		public var specimenIdCount:uint = 0;
 		
-		public function InspectablePopulationEvolutionOperator(specimenIdPrefix:String = '')
-		{
+		public function InspectablePopulationEvolutionOperator(specimenIdPrefix:String = '') {
 			this.specimenIdPrefix = specimenIdPrefix;
 		}
 		
-		public function evolvePopulation(specimens:Array, targetPopulationSize:uint):Array
-		{
+		public function evolvePopulation(specimens:Array, targetPopulationSize:uint):Array {
 			evolvePopulationRun = true;
 			lastEvolvePopulationExecution = (new Date()).time;
 			var population:Array = [];

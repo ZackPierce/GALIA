@@ -16,8 +16,7 @@ package galia.selection
 		
 		
 		[Before]
-		public function setUp():void
-		{
+		public function setUp():void {
 			specimens = [];
 			
 			specimenA = new Specimen();
@@ -27,8 +26,7 @@ package galia.selection
 		}
 		
 		[After]
-		public function tearDown():void
-		{
+		public function tearDown():void {
 			specimens = null;
 			
 			specimenA = null;
@@ -38,13 +36,11 @@ package galia.selection
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		[Test]

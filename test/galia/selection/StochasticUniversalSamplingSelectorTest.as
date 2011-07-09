@@ -9,32 +9,27 @@ package galia.selection
 	{
 		
 		[Before]
-		override public function setUp():void
-		{
+		override public function setUp():void {
 			super.setUp();
 			selector = new StochasticUniversalSamplingSelector();
 			(selector as StochasticUniversalSamplingSelector).seed = 2;
 		}
 		
 		[After]
-		override public function tearDown():void
-		{
+		override public function tearDown():void {
 			super.tearDown();
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		[Test]
-		public function testSelectThreeSurvivorsThreePossibleSpecimens():void
-		{
+		public function testSelectThreeSurvivorsThreePossibleSpecimens():void {
 			specimenA.fitness = 1;
 			specimenB.fitness = 1;
 			specimenC.fitness = 1;
@@ -50,8 +45,7 @@ package galia.selection
 		}
 		
 		[Test]
-		public function testSelectThreeSurvivorThreePossibleSpecimensDominantSpecimen():void
-		{
+		public function testSelectThreeSurvivorThreePossibleSpecimensDominantSpecimen():void {
 			specimenA.fitness = 0;
 			specimenB.fitness = 0;
 			specimenC.fitness = 1;
@@ -67,8 +61,7 @@ package galia.selection
 		}
 		
 		[Test]
-		public function testSelectTwoSurvivorsThreePossibleSpecimensUnevenFitnesses():void
-		{
+		public function testSelectTwoSurvivorsThreePossibleSpecimensUnevenFitnesses():void {
 			specimenA.fitness = 1;
 			specimenB.fitness = 2;
 			specimenC.fitness = 2.5;
@@ -85,8 +78,7 @@ package galia.selection
 		}
 		
 		[Test]
-		public function testSelectThreeSurvivorsThreePossibleSpecimensZeroFitness():void
-		{
+		public function testSelectThreeSurvivorsThreePossibleSpecimensZeroFitness():void {
 			specimenA.fitness = 0;
 			specimenB.fitness = 0;
 			specimenC.fitness = 0;

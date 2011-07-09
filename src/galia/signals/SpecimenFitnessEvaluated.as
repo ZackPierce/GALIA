@@ -10,8 +10,7 @@ package galia.signals
 	 */
 	public class SpecimenFitnessEvaluated extends Signal
 	{
-		public function SpecimenFitnessEvaluated()
-		{
+		public function SpecimenFitnessEvaluated() {
 			super(ISpecimen);
 		}
 	}

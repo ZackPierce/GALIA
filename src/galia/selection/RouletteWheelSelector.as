@@ -8,8 +8,7 @@ package galia.selection
 	
 	public class RouletteWheelSelector extends BaseSelector implements ISelector
 	{
-		public function RouletteWheelSelector(numberOfSelections:Number = 0)
-		{
+		public function RouletteWheelSelector(numberOfSelections:Number = 0) {
 			super(numberOfSelections);
 		}
 		

@@ -11,8 +11,7 @@ package galia.selection
 		
 		private var _bestSelectionProbability:Number = 1.0; 
 		
-		public function TournamentSelector(numberOfSelections:uint = 0, tournamentSize:uint = 2, bestSelectionProbability:Number = 1.0)
-		{
+		public function TournamentSelector(numberOfSelections:uint = 0, tournamentSize:uint = 2, bestSelectionProbability:Number = 1.0) {
 			super(numberOfSelections);
 			this.tournamentSize = tournamentSize;
 			this.bestSelectionProbability = bestSelectionProbability;

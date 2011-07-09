@@ -11,8 +11,7 @@ package galia.procreation
 		
 		protected var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
 		
-		public function ByteArrayPointMutation(mutationRate:Number = 0)
-		{
+		public function ByteArrayPointMutation(mutationRate:Number = 0) {
 			this.mutationRate = mutationRate;
 		}
 		

@@ -7,8 +7,7 @@ package galia.signals
 	 */
 	public class PopulationFitnessEvaluated extends Signal
 	{
-		public function PopulationFitnessEvaluated()
-		{
+		public function PopulationFitnessEvaluated() {
 			super(Array);
 		}
 	}

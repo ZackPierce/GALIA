@@ -6,8 +6,7 @@ package galia.base
 	{
 		private var _specimens:Array = [];
 		
-		public function Population()
-		{
+		public function Population() {
 		}
 		
 		public function get specimens():Array {

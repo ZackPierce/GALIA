@@ -16,8 +16,7 @@ package galia.procreation
 		private var kids:Array;
 		
 		[Before]
-		public function setUp():void
-		{
+		public function setUp():void {
 			byteArrayPointMutation = new ByteArrayPointMutation();
 			chromosome = new ByteArrayChromosome();
 			seed = 2;
@@ -25,8 +24,7 @@ package galia.procreation
 		}
 		
 		[After]
-		public function tearDown():void
-		{
+		public function tearDown():void {
 			byteArrayPointMutation = null;
 			chromosome = null;
 			seed = 0;
@@ -35,13 +33,11 @@ package galia.procreation
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		[Test]

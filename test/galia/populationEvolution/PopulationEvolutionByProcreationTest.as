@@ -15,8 +15,7 @@ package galia.populationEvolution
 		private var targetPopulationSize:uint = 0;
 		
 		[Before]
-		public function setUp():void
-		{
+		public function setUp():void {
 			populationEvolutionByProcreation = new PopulationEvolutionByProcreation();
 			chromosomeProcreationOperator = new TrivialChromosomeProcreationOperator();
 			populationEvolutionByProcreation.chromosomeProcreationOperator = chromosomeProcreationOperator;
@@ -29,8 +28,7 @@ package galia.populationEvolution
 		}
 		
 		[After]
-		public function tearDown():void
-		{
+		public function tearDown():void {
 			populationEvolutionByProcreation = null;
 			chromosomeProcreationOperator = null;
 			inputSpecimens = null;
@@ -38,13 +36,11 @@ package galia.populationEvolution
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		[Test]
@@ -68,8 +64,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationSameTargetSizeAsInputSpecimensNoParentsRequired():void
-		{
+		public function testEvolvePopulationSameTargetSizeAsInputSpecimensNoParentsRequired():void {
 			targetPopulationSize = 3;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 0;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
@@ -79,8 +74,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationHigherTargetSizeThanInputSpecimensNoParentsRequired():void
-		{
+		public function testEvolvePopulationHigherTargetSizeThanInputSpecimensNoParentsRequired():void {
 			targetPopulationSize = 5;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 0;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
@@ -90,8 +84,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationLowerTargetSizeThanInputSpecimensNoParentsRequired():void
-		{
+		public function testEvolvePopulationLowerTargetSizeThanInputSpecimensNoParentsRequired():void {
 			targetPopulationSize = 1;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 0;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
@@ -101,8 +94,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationNoParentsRequired():void
-		{
+		public function testEvolvePopulationNoParentsRequired():void {
 			targetPopulationSize = 5;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 0;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
@@ -133,8 +125,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationSameTargetSizeAsInputSpecimensOneParentRequired():void
-		{
+		public function testEvolvePopulationSameTargetSizeAsInputSpecimensOneParentRequired():void {
 			targetPopulationSize = 3;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 1;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
@@ -144,8 +135,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationHigherTargetSizeThanInputSpecimensOneParentRequired():void
-		{
+		public function testEvolvePopulationHigherTargetSizeThanInputSpecimensOneParentRequired():void {
 			targetPopulationSize = 5;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 1;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
@@ -155,8 +145,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationLowerTargetSizeThanInputSpecimensOneParentRequired():void
-		{
+		public function testEvolvePopulationLowerTargetSizeThanInputSpecimensOneParentRequired():void {
 			targetPopulationSize = 1;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 1;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
@@ -166,8 +155,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationOneParentRequired():void
-		{
+		public function testEvolvePopulationOneParentRequired():void {
 			targetPopulationSize = 5;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 1;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
@@ -198,8 +186,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationSameTargetSizeAsInputSpecimensMultipleParentsRequired():void
-		{
+		public function testEvolvePopulationSameTargetSizeAsInputSpecimensMultipleParentsRequired():void {
 			targetPopulationSize = 3;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 3;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
@@ -209,8 +196,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationHigherTargetSizeThanInputSpecimensMultipleParentsRequired():void
-		{
+		public function testEvolvePopulationHigherTargetSizeThanInputSpecimensMultipleParentsRequired():void {
 			targetPopulationSize = 5;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 3;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
@@ -220,8 +206,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationLowerTargetSizeThanInputSpecimensMultipleParentsRequired():void
-		{
+		public function testEvolvePopulationLowerTargetSizeThanInputSpecimensMultipleParentsRequired():void {
 			targetPopulationSize = 1;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 3;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
@@ -231,8 +216,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationMultipleParentsRequired():void
-		{
+		public function testEvolvePopulationMultipleParentsRequired():void {
 			targetPopulationSize = 5;
 			(chromosomeProcreationOperator as TrivialChromosomeProcreationOperator).numberOfParentsRequired = 3;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];

@@ -6,8 +6,7 @@ package galia.base
 	
 	public class ByteArrayChromosome extends ByteArray implements IChromosome
 	{
-		public function ByteArrayChromosome(source:ByteArray = null)
-		{
+		public function ByteArrayChromosome(source:ByteArray = null) {
 			super();
 			if (source) {
 				this.writeBytes(source);

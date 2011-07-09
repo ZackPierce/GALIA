@@ -4,8 +4,7 @@ package galia.populationEvolution.supportClasses
 	
 	public class TrivialChromosome implements IChromosome
 	{
-		public function TrivialChromosome()
-		{
+		public function TrivialChromosome() {
 		}
 	}
 }

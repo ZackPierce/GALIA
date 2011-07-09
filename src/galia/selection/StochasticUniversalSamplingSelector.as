@@ -8,8 +8,7 @@ package galia.selection
 	
 	public class StochasticUniversalSamplingSelector extends BaseSelector implements ISelector
 	{
-		public function StochasticUniversalSamplingSelector(numberOfSelections:uint = 0)
-		{
+		public function StochasticUniversalSamplingSelector(numberOfSelections:uint = 0) {
 			super(numberOfSelections);
 		}
 		

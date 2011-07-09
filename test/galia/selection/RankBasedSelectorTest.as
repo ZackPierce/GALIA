@@ -5,33 +5,28 @@ package galia.selection
 	public class RankBasedSelectorTest extends SelectorTest
 	{		
 		[Before]
-		override public function setUp():void
-		{
+		override public function setUp():void {
 			super.setUp();
 			selector = new RankBasedSelector();
 			(selector as RankBasedSelector).seed = 2; 
 		}
 		
 		[After]
-		override public function tearDown():void
-		{
+		override public function tearDown():void {
 			super.tearDown();
 			selector = null;
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		[Test]
-		public function testSelectSurvivorsOneSurvivorSUS():void
-		{
+		public function testSelectSurvivorsOneSurvivorSUS():void {
 			Assert.assertTrue('Default delegate helper selector is a StochasticUniversalSamplingSelector', (selector as RankBasedSelector).helperSelector is StochasticUniversalSamplingSelector);
 			((selector as RankBasedSelector).helperSelector as StochasticUniversalSamplingSelector).seed = 2;
 			specimenA.fitness = 1;
@@ -49,8 +44,7 @@ package galia.selection
 		}
 		
 		[Test]
-		public function testSelectSurvivorsTwoSurvivorsSUS():void
-		{
+		public function testSelectSurvivorsTwoSurvivorsSUS():void {
 			Assert.assertTrue('Default delegate helper selector is a StochasticUniversalSamplingSelector', (selector as RankBasedSelector).helperSelector is StochasticUniversalSamplingSelector);
 			((selector as RankBasedSelector).helperSelector as StochasticUniversalSamplingSelector).seed = 2;
 			specimenA.fitness = 1;

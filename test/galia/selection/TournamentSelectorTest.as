@@ -9,8 +9,7 @@ package galia.selection
 	{
 		
 		[Before]
-		override public function setUp():void
-		{
+		override public function setUp():void {
 			super.setUp();
 			selector = new TournamentSelector();
 			seed = DEFAULT_SEED;
@@ -18,19 +17,16 @@ package galia.selection
 		}
 		
 		[After]
-		override public function tearDown():void
-		{
+		override public function tearDown():void {
 			super.tearDown();
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		

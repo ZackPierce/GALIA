@@ -21,8 +21,7 @@ package galia.populationEvolution
 		private var populationEvolutionOperatorC:InspectablePopulationEvolutionOperator;
 		
 		[Before]
-		public function setUp():void
-		{
+		public function setUp():void {
 			populationEvolutionOperatorA = new InspectablePopulationEvolutionOperator(EVOLVER_A);
 			populationEvolutionOperatorB = new InspectablePopulationEvolutionOperator(EVOLVER_B);
 			populationEvolutionOperatorC = new InspectablePopulationEvolutionOperator(EVOLVER_C);
@@ -31,8 +30,7 @@ package galia.populationEvolution
 		}
 		
 		[After]
-		public function tearDown():void
-		{
+		public function tearDown():void {
 			populationEvolutionOperatorA = null;
 			populationEvolutionOperatorB = null;
 			populationEvolutionOperatorC = null;
@@ -41,13 +39,11 @@ package galia.populationEvolution
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		private function generateTrivialSpecimens(numSpecimens:uint):Array {
@@ -114,8 +110,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationEvenlySplit():void
-		{
+		public function testEvolvePopulationEvenlySplit():void {
 			splitPopulationEvolution.setPopulationEvolutionOperatorsAndWeights([populationEvolutionOperatorA, populationEvolutionOperatorB, populationEvolutionOperatorC],
 				[2, 2, 2]);
 			targetPopulationSize = 6;
@@ -132,8 +127,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationUnevenlySplit():void
-		{
+		public function testEvolvePopulationUnevenlySplit():void {
 			splitPopulationEvolution.setPopulationEvolutionOperatorsAndWeights([populationEvolutionOperatorA, populationEvolutionOperatorB, populationEvolutionOperatorC],
 				[3, 2, 1]);
 			targetPopulationSize = 6;
@@ -151,8 +145,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationNoWeights():void
-		{
+		public function testEvolvePopulationNoWeights():void {
 			splitPopulationEvolution.setPopulationEvolutionOperatorsAndWeights([populationEvolutionOperatorA, populationEvolutionOperatorB, populationEvolutionOperatorC],
 				null);
 			targetPopulationSize = 6;
@@ -169,8 +162,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationPartialWeights():void
-		{
+		public function testEvolvePopulationPartialWeights():void {
 			splitPopulationEvolution.setPopulationEvolutionOperatorsAndWeights([populationEvolutionOperatorA, populationEvolutionOperatorB, populationEvolutionOperatorC],
 				[(1.0/3.0), (1.0/3.0)]);
 			targetPopulationSize = 6;

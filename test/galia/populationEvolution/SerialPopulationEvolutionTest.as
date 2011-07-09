@@ -15,8 +15,7 @@ package galia.populationEvolution
 		private var populationEvolutionOperatorB:InspectablePopulationEvolutionOperator;
 		
 		[Before]
-		public function setUp():void
-		{
+		public function setUp():void {
 			populationEvolutionOperatorA = new InspectablePopulationEvolutionOperator();
 			populationEvolutionOperatorB = new InspectablePopulationEvolutionOperator();
 			serialPopulationEvolution = new SerialPopulationEvolution([populationEvolutionOperatorA, populationEvolutionOperatorB]);
@@ -24,8 +23,7 @@ package galia.populationEvolution
 		}
 		
 		[After]
-		public function tearDown():void
-		{
+		public function tearDown():void {
 			serialPopulationEvolution = null;
 			inputSpecimens = null;
 			populationEvolutionOperatorA = null;
@@ -34,13 +32,11 @@ package galia.populationEvolution
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		[Test]
@@ -62,8 +58,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationSameTargetSizeAsInputSpecimens():void
-		{
+		public function testEvolvePopulationSameTargetSizeAsInputSpecimens():void {
 			targetPopulationSize = 3;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
 			var outputSpecimens:Array = serialPopulationEvolution.evolvePopulation(inputSpecimens, targetPopulationSize);
@@ -72,8 +67,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationHigherTargetSizeThanInputSpecimens():void
-		{
+		public function testEvolvePopulationHigherTargetSizeThanInputSpecimens():void {
 			targetPopulationSize = 5;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
 			var outputSpecimens:Array = serialPopulationEvolution.evolvePopulation(inputSpecimens, targetPopulationSize);
@@ -82,8 +76,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationLowerTargetSizeThanInputSpecimens():void
-		{
+		public function testEvolvePopulationLowerTargetSizeThanInputSpecimens():void {
 			targetPopulationSize = 1;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
 			var outputSpecimens:Array = serialPopulationEvolution.evolvePopulation(inputSpecimens, targetPopulationSize);
@@ -92,8 +85,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testEvolvePopulationOrder():void
-		{
+		public function testEvolvePopulationOrder():void {
 			targetPopulationSize = 1;
 			inputSpecimens = [new Specimen(), new Specimen(), new Specimen()];
 			var operators:Array = [populationEvolutionOperatorA, populationEvolutionOperatorB];
@@ -114,8 +106,7 @@ package galia.populationEvolution
 		}
 		
 		[Test]
-		public function testSet_populationEvolutionOperatorsNull():void
-		{
+		public function testSet_populationEvolutionOperatorsNull():void {
 			serialPopulationEvolution.populationEvolutionOperators = null;
 			Assert.assertNotNull("Attempting to set the populationEvolutionOperators to null results in a NON-null property", serialPopulationEvolution.populationEvolutionOperators);
 			Assert.assertStrictlyEquals("Attempting to set the populationEvolutionOperators to null results in an empty populationEvolutionOperators array", 0, serialPopulationEvolution.populationEvolutionOperators.length);

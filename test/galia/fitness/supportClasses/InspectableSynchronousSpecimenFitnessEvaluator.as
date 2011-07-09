@@ -8,12 +8,10 @@ package galia.fitness.supportClasses
 		public var specimensEvaluationStarted:Array = []
 		public var specimensEvaluationCompleted:Array = [];
 		
-		public function InspectableSynchronousSpecimenFitnessEvaluator()
-		{
+		public function InspectableSynchronousSpecimenFitnessEvaluator() {
 		}
 		
-		public function evaluateSpecimen(specimen:ISpecimen):void
-		{
+		public function evaluateSpecimen(specimen:ISpecimen):void {
 			specimensEvaluationStarted.push(specimen);
 			specimen.fitness = 1;
 			specimen.isFitnessTested = true;

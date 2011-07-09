@@ -5,32 +5,27 @@ package galia.selection
 	public class TruncationSelectorTest extends SelectorTest
 	{		
 		[Before]
-		override public function setUp():void
-		{
+		override public function setUp():void {
 			super.setUp();
 			selector = new TruncationSelector();
 			(selector as TruncationSelector).seed = 2;
 		}
 		
 		[After]
-		override public function tearDown():void
-		{
+		override public function tearDown():void {
 			super.tearDown();
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		[Test]
-		public function testSelectSurvivorsOneSurvivor():void
-		{
+		public function testSelectSurvivorsOneSurvivor():void {
 			specimenA.fitness = 1;
 			specimenB.fitness = 2;
 			specimenC.fitness = 3;
@@ -45,8 +40,7 @@ package galia.selection
 		}
 		
 		[Test]
-		public function testSelectSurvivorsTwoSurvivors():void
-		{
+		public function testSelectSurvivorsTwoSurvivors():void {
 			specimenA.fitness = 1;
 			specimenB.fitness = 2;
 			specimenC.fitness = 3;
@@ -62,8 +56,7 @@ package galia.selection
 		}
 		
 		[Test]
-		public function testSelectSurvivorsFourSurvivorsThreeSpecimens():void
-		{
+		public function testSelectSurvivorsFourSurvivorsThreeSpecimens():void {
 			specimenA.fitness = 1;
 			specimenB.fitness = 2;
 			specimenC.fitness = 3;

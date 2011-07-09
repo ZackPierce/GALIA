@@ -8,32 +8,27 @@ package galia.selection
 	public class RouletteWheelSelectorTest extends SelectorTest
 	{
 		[Before]
-		override public function setUp():void
-		{
+		override public function setUp():void {
 			super.setUp();
 			selector = new RouletteWheelSelector();
 			(selector as RouletteWheelSelector).seed = 1;
 		}
 		
 		[After]
-		override public function tearDown():void
-		{
+		override public function tearDown():void {
 			super.tearDown();
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		[Test]
-		public function testSelectSurvivorsSimple():void
-		{
+		public function testSelectSurvivorsSimple():void {
 			specimenA.fitness = 0; // Corresponds to accumulated normalized fitness of 0
 			specimenB.fitness = 1; // Corresponds to accumulated normalized fitness of 1/6.0
 			specimenC.fitness = 2; // Corresponds to accumulated normalized fitness of 3/6.0
@@ -52,8 +47,7 @@ package galia.selection
 		}
 		
 		[Test]
-		public function testSelectSurvivorsSimpleDisordered():void
-		{
+		public function testSelectSurvivorsSimpleDisordered():void {
 			specimenA.fitness = 0; // Corresponds to accumulated normalized fitness of 0
 			specimenB.fitness = 1; // Corresponds to accumulated normalized fitness of 1/6.0
 			specimenC.fitness = 2; // Corresponds to accumulated normalized fitness of 3/6.0

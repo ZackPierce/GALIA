@@ -17,8 +17,7 @@ package galia.fitness.supportClasses
 		
 		private var _specimenFitnessEvaluated:SpecimenFitnessEvaluated = new SpecimenFitnessEvaluated();
 		
-		public function InspectableAsynchronousSpecimenFitnessEvaluator()
-		{
+		public function InspectableAsynchronousSpecimenFitnessEvaluator() {
 		}
 		
 		public function evaluateSpecimen(specimen:ISpecimen):void {

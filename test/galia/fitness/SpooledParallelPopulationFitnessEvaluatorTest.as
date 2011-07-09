@@ -20,8 +20,7 @@ package galia.fitness
 		private var specimens:Array;
 		
 		[Before]
-		public function setUp():void
-		{
+		public function setUp():void {
 			spooledParallelPopulationFitnessEvaluator = new SpooledParallelPopulationFitnessEvaluator();
 			asynchronousSpecimenFitnessEvaluator = new InspectableAsynchronousSpecimenFitnessEvaluator();
 			specimens = [];
@@ -33,26 +32,22 @@ package galia.fitness
 		}
 		
 		[After]
-		public function tearDown():void
-		{
+		public function tearDown():void {
 			spooledParallelPopulationFitnessEvaluator = null;
 			asynchronousSpecimenFitnessEvaluator = null;
 			specimens = null;
 		}
 		
 		[BeforeClass]
-		public static function setUpBeforeClass():void
-		{
+		public static function setUpBeforeClass():void {
 		}
 		
 		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
+		public static function tearDownAfterClass():void {
 		}
 		
 		[Test(async, 'Null specimens array should still result in a populationFitnessEvaluated dispatch')]
-		public function testEvaluatePopulationFitnessNullSpecimensArray():void
-		{
+		public function testEvaluatePopulationFitnessNullSpecimensArray():void {
 			specimens = null;
 			spooledParallelPopulationFitnessEvaluator.asynchronousSpecimenFitnessEvaluator = asynchronousSpecimenFitnessEvaluator;
 			handleSignal(this, spooledParallelPopulationFitnessEvaluator.populationFitnessEvaluated, populationFitnessEvaluatedHandlerConfirmNullSpecimensDispatched);
@@ -64,8 +59,7 @@ package galia.fitness
 		}
 		
 		[Test(async, 'Empty specimens array should still result in a populationFitnessEvaluated dispatch')]
-		public function testEvaluatePopulationFitnessEmptySpecimensArray():void
-		{
+		public function testEvaluatePopulationFitnessEmptySpecimensArray():void {
 			specimens = [];
 			spooledParallelPopulationFitnessEvaluator.asynchronousSpecimenFitnessEvaluator = asynchronousSpecimenFitnessEvaluator;
 			handleSignal(this, spooledParallelPopulationFitnessEvaluator.populationFitnessEvaluated, populationFitnessEvaluatedHandlerConfirmSameSpecimensDispatched);
@@ -93,8 +87,7 @@ package galia.fitness
 		}
 		
 		[Test(async)]
-		public function testEvaluatePopulationFitnessAsynchronousSpecimenFitnessEvaluator():void
-		{
+		public function testEvaluatePopulationFitnessAsynchronousSpecimenFitnessEvaluator():void {
 			spooledParallelPopulationFitnessEvaluator.asynchronousSpecimenFitnessEvaluator = asynchronousSpecimenFitnessEvaluator;
 			spooledParallelPopulationFitnessEvaluator.maximumParallelActiveSpecimenFitnessEvaluations = 1;
 			handleSignal(this, asynchronousSpecimenFitnessEvaluator.specimenFitnessEvaluated, individualSpecimenFitnessEvaluatedHandler);
@@ -110,8 +103,7 @@ package galia.fitness
 		}
 		
 		[Test(async)]
-		public function testEvaluatePopulationFitnessAsynchronousSpecimenFitnessEvaluatorHigherMaxParallelThanSpecimensAvailable():void
-		{
+		public function testEvaluatePopulationFitnessAsynchronousSpecimenFitnessEvaluatorHigherMaxParallelThanSpecimensAvailable():void {
 			spooledParallelPopulationFitnessEvaluator.asynchronousSpecimenFitnessEvaluator = asynchronousSpecimenFitnessEvaluator;
 			spooledParallelPopulationFitnessEvaluator.maximumParallelActiveSpecimenFitnessEvaluations = specimens.length + 1;
 			handleSignal(this, asynchronousSpecimenFitnessEvaluator.specimenFitnessEvaluated, individualSpecimenFitnessEvaluatedHandler);
