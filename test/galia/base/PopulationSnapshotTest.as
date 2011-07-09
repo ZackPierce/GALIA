@@ -37,5 +37,23 @@ package galia.base
 			Assert.assertStrictlyEquals('topSpecimen should match expected value', specimens[2], snapshot.topSpecimen); 
 			Assert.assertStrictlyEquals('standardDeviation property should match expected value', Math.sqrt(2.0/3.0).toPrecision(15), snapshot.standardDeviationFitness.toPrecision(15));
 		}
+		
+		[Test]
+		public function testGeneratePopulationSnapshotNullSpecimens():void {
+			specimens = null;
+			var generationIndexInput:uint = 4;
+			var populationIdentifierInput:String = 'one a';
+			snapshot = PopulationSnapshot.generatePopulationSnapshot(generationIndexInput, populationIdentifierInput, specimens);
+			Assert.assertStrictlyEquals('snapshot generationIndex property matches input parameter', generationIndexInput, snapshot.generationIndex);
+			Assert.assertStrictlyEquals('snapshot populationIdentifier property matches input parameter', populationIdentifierInput, snapshot.populationIdentifier);
+			Assert.assertStrictlyEquals('max property should match default value if specimens null', Number.MIN_VALUE, snapshot.maxFitness);
+			Assert.assertStrictlyEquals('mean property should match default value if specimens null', 0, snapshot.meanFitness);
+			Assert.assertStrictlyEquals('median property should match default value if specimens null', 0, snapshot.medianFitness);
+			Assert.assertStrictlyEquals('min property should match default value if specimens null', Number.MAX_VALUE, snapshot.minFitness);
+			Assert.assertStrictlyEquals('numberOfSpecimens property should match default value if specimens null', 0, snapshot.numberOfSpecimens);
+			Assert.assertStrictlyEquals('topSpecimen should match default value if specimens null', null , snapshot.topSpecimen); 
+			Assert.assertStrictlyEquals('standardDeviation property should match default value if specimens null', 0, snapshot.standardDeviationFitness);
+			
+		}
 	}
 }

@@ -77,7 +77,7 @@ package galia.base
 				numSpecimens = specimens.length;
 				localSpecimens = specimens.slice();
 			} else {
-				new PopulationSnapshot(generationIndex, maxFitness, meanFitness, medianFitness, minFitness, numSpecimens, populationIdentifier, standardDeviationFitness, topSpecimen);
+				return new PopulationSnapshot(generationIndex, maxFitness, meanFitness, medianFitness, minFitness, numSpecimens, populationIdentifier, standardDeviationFitness, topSpecimen);
 			}
 			localSpecimens.sortOn('fitness', Array.NUMERIC);
 			minFitness = localSpecimens[0].fitness;

@@ -7,3 +7,5 @@ h2. Project Goals
 The primary intent is to create a powerful genetic algorithm library that is easy to use for various problem spaces.
 
 The secondary intent is to make it easy to visualize the execution of genetic algorithms.
+
+This library is currently in *pre-release development*, so beware shifting dunes of code and API-drift.
