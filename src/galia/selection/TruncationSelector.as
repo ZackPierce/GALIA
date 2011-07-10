@@ -1,7 +1,5 @@
 package galia.selection
 {
-	import com.gskinner.utils.Rndm;
-	
 	import galia.core.ISelector;
 	
 	public class TruncationSelector extends BaseSelector implements ISelector

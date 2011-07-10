@@ -5,6 +5,7 @@ package galia.procreation
 	import flexunit.framework.Assert;
 	
 	import galia.base.ByteArrayChromosome;
+	import galia.math.ParkMillerRandomNumberGenerator;
 	
 	public class ByteArrayMultiPointCrossoverTest
 	{
@@ -20,7 +21,7 @@ package galia.procreation
 		public function setUp():void {
 			byteArrayMultiPointCrossover = new ByteArrayMultiPointCrossover();
 			seed = 5000;
-			byteArrayMultiPointCrossover.seed = seed;
+			byteArrayMultiPointCrossover.randomNumberGenerator = new ParkMillerRandomNumberGenerator(seed);
 			
 			// Set up contents such that all of chromosomeA's values are negative integers
 			chromosomeA = new ByteArrayChromosome();

@@ -1,8 +1,5 @@
 package galia.selection
 {
-	import com.gskinner.utils.Rndm;
-	
-	import galia.core.IPopulation;
 	import galia.core.ISelector;
 	import galia.core.ISpecimen;
 	

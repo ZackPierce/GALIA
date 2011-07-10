@@ -1,16 +1,16 @@
 package galia.procreation
 {
-	import com.gskinner.utils.Rndm;
-	
 	import galia.base.ByteArrayChromosome;
 	import galia.core.IProcreationOperator;
+	import galia.core.IRandomNumberGenerator;
+	import galia.math.MathRandomNumberGenerator;
 	
 	public class ByteArrayRandomizedCreation implements IProcreationOperator
 	{
 		private var _explicitChromosomeSize:uint;
 		private var isExplicitChromosomeSizeSet:Boolean = false;
 		
-		protected var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
+		public var randomNumberGenerator:IRandomNumberGenerator = new MathRandomNumberGenerator();
 		
 		public function ByteArrayRandomizedCreation() {
 		}
@@ -53,14 +53,6 @@ package galia.procreation
 		
 		public function get numberOfParentsRequired():uint {
 			return 1; // Requires one parent in order to inspect it to determine desired chromosome size
-		}
-		
-		public function get seed():uint {
-			return randomNumberGenerator.seed;
-		}
-		
-		public function set seed(value:uint):void {
-			randomNumberGenerator.seed = value;
 		}
 	}
 }

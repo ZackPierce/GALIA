@@ -4,6 +4,7 @@ package galia.selection
 	
 	import galia.base.Specimen;
 	import galia.core.ISpecimen;
+	import galia.math.ParkMillerRandomNumberGenerator;
 	
 	public class RouletteWheelSelectorTest extends SelectorTest
 	{
@@ -11,7 +12,7 @@ package galia.selection
 		override public function setUp():void {
 			super.setUp();
 			selector = new RouletteWheelSelector();
-			(selector as RouletteWheelSelector).seed = 1;
+			(selector as RouletteWheelSelector).randomNumberGenerator = new ParkMillerRandomNumberGenerator(1);
 		}
 		
 		[After]
@@ -39,7 +40,7 @@ package galia.selection
 			var selections:Array = selector.selectSurvivors(specimens);
 			
 			Assert.assertTrue('Proper number of selections made', selections.length == 3);
-			// Since we expect default seed to cause Rndm to produce the following values: 0.000007826602259425612, 0.13153778837616625, 0.7556053224280331, 0.4586501321564493,
+			// Since we expect default seed to cause ParkMillerRandomNumberGenerator to produce the following values: 0.000007826602259425612, 0.13153778837616625, 0.7556053224280331, 0.4586501321564493,
 			// the corresponding first accumulated normalized fitnesses that would be found are specimenB, specimenB, specimenD, and specimenB again
 			Assert.assertTrue('First selection is B', selections[0] == specimenB);
 			Assert.assertTrue('Second selection is also specimenB', selections[1] == specimenB);
@@ -58,7 +59,7 @@ package galia.selection
 			var selections:Array = selector.selectSurvivors(specimens);
 			
 			Assert.assertTrue('Proper number of selections made', selections.length == 3);
-			// Since we expect default seed to cause Rndm to produce the following values: 0.000007826602259425612, 0.13153778837616625, 0.7556053224280331, 0.4586501321564493,
+			// Since we expect default seed to cause ParkMillerRandomNumberGenerator to produce the following values: 0.000007826602259425612, 0.13153778837616625, 0.7556053224280331, 0.4586501321564493,
 			// the corresponding first accumulated normalized fitnesses that would be found are specimenB, specimenB, specimenD, and specimenB again
 			Assert.assertTrue('First selection is B', selections[0] == specimenB);
 			Assert.assertTrue('Second selection is also specimenB', selections[1] == specimenB);

@@ -1,7 +1,5 @@
 package galia.selection
 {
-	import com.gskinner.utils.Rndm;
-	
 	import flash.utils.Dictionary;
 	
 	import galia.core.ISelector;

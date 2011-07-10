@@ -3,6 +3,7 @@ package galia.procreation
 	import flexunit.framework.Assert;
 	
 	import galia.base.ByteArrayChromosome;
+	import galia.math.ParkMillerRandomNumberGenerator;
 	
 	public class ByteArrayRandomizedCreationTest
 	{		
@@ -16,7 +17,7 @@ package galia.procreation
 		[Before]
 		public function setUp():void {
 			byteArrayRandomizedCreation = new ByteArrayRandomizedCreation();
-			byteArrayRandomizedCreation.seed = DEFAULT_SEED;
+			byteArrayRandomizedCreation.randomNumberGenerator = new ParkMillerRandomNumberGenerator(DEFAULT_SEED);
 			parents = [];
 			kids = null;
 			byteArrayChromosome = new ByteArrayChromosome();
@@ -53,7 +54,7 @@ package galia.procreation
 		public function testProcreateNullParentsExplicitSizeSeedControl():void {
 			parents = null;
 			byteArrayRandomizedCreation.explicitChromosomeSize = 1;
-			byteArrayRandomizedCreation.seed = DEFAULT_SEED;
+			byteArrayRandomizedCreation.randomNumberGenerator = new ParkMillerRandomNumberGenerator(DEFAULT_SEED);
 			kids = byteArrayRandomizedCreation.procreate(parents);
 			Assert.assertNotNull('Kids array produced by procreate should never be null', kids);
 			Assert.assertStrictlyEquals('null parents array leads to an output kids array with a single member', 1, kids.length);

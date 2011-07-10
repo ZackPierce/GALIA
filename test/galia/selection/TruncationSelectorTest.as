@@ -2,13 +2,15 @@ package galia.selection
 {
 	import flexunit.framework.Assert;
 	
+	import galia.math.ParkMillerRandomNumberGenerator;
+	
 	public class TruncationSelectorTest extends SelectorTest
 	{		
 		[Before]
 		override public function setUp():void {
 			super.setUp();
 			selector = new TruncationSelector();
-			(selector as TruncationSelector).seed = 2;
+			(selector as TruncationSelector).randomNumberGenerator = new ParkMillerRandomNumberGenerator(2);
 		}
 		
 		[After]

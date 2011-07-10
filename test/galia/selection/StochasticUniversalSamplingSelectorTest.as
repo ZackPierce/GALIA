@@ -4,6 +4,7 @@ package galia.selection
 	
 	import galia.base.Specimen;
 	import galia.core.ISpecimen;
+	import galia.math.ParkMillerRandomNumberGenerator;
 	
 	public class StochasticUniversalSamplingSelectorTest extends SelectorTest
 	{
@@ -12,7 +13,7 @@ package galia.selection
 		override public function setUp():void {
 			super.setUp();
 			selector = new StochasticUniversalSamplingSelector();
-			(selector as StochasticUniversalSamplingSelector).seed = 2;
+			(selector as StochasticUniversalSamplingSelector).randomNumberGenerator = new ParkMillerRandomNumberGenerator(2);
 		}
 		
 		[After]

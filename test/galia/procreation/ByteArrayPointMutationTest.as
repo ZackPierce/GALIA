@@ -5,6 +5,7 @@ package galia.procreation
 	import flexunit.framework.Assert;
 	
 	import galia.base.ByteArrayChromosome;
+	import galia.math.ParkMillerRandomNumberGenerator;
 
 	public class ByteArrayPointMutationTest
 	{
@@ -69,7 +70,7 @@ package galia.procreation
 			chromosome.writeByte(sourceByte);
 			parents = [chromosome];
 			byteArrayPointMutation.mutationRate = 1.0;
-			byteArrayPointMutation.seed = seed; // Assuming 2
+			byteArrayPointMutation.randomNumberGenerator = new ParkMillerRandomNumberGenerator(seed); // Assuming 2
 			kids = byteArrayPointMutation.procreate(parents);
 			Assert.assertNotNull('Kids array produced by procreate should never be null', kids);
 			Assert.assertTrue('Number of parents matches number of output kids', kids.length == 1);
@@ -97,7 +98,7 @@ package galia.procreation
 			}
 			parents = [chromosome];
 			byteArrayPointMutation.mutationRate = 1.0;
-			byteArrayPointMutation.seed = seed; // Assuming 2
+			byteArrayPointMutation.randomNumberGenerator = new ParkMillerRandomNumberGenerator(seed); // Assuming 2
 			kids = byteArrayPointMutation.procreate(parents);
 			Assert.assertNotNull('Kids array produced by procreate should never be null', kids);
 			Assert.assertTrue('Number of parents matches number of output kids', kids.length == 1);
@@ -126,7 +127,7 @@ package galia.procreation
 			parents = [chromosome];
 			var mutationRate:Number = 0.5;
 			byteArrayPointMutation.mutationRate = mutationRate;
-			byteArrayPointMutation.seed = seed; // Assuming 2
+			byteArrayPointMutation.randomNumberGenerator = new ParkMillerRandomNumberGenerator(seed); // Assuming 2
 			kids = byteArrayPointMutation.procreate(parents);
 			Assert.assertNotNull('Kids array produced by procreate should never be null', kids);
 			Assert.assertTrue('Number of parents matches number of output kids', kids.length == 1);
@@ -162,7 +163,7 @@ package galia.procreation
 			parents = [chromosome];
 			var mutationRate:Number = 0.1;
 			byteArrayPointMutation.mutationRate = mutationRate;
-			byteArrayPointMutation.seed = seed; // Assuming 2
+			byteArrayPointMutation.randomNumberGenerator = new ParkMillerRandomNumberGenerator(seed); // Assuming 2
 			kids = byteArrayPointMutation.procreate(parents);
 			Assert.assertNotNull('Kids array produced by procreate should never be null', kids);
 			Assert.assertTrue('Number of parents matches number of output kids', kids.length == 1);

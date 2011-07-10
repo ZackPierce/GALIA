@@ -1,14 +1,14 @@
 package galia.selection
 {
-	import com.gskinner.utils.Rndm;
-	
+	import galia.core.IRandomNumberGenerator;
 	import galia.core.ISelector;
+	import galia.math.MathRandomNumberGenerator;
 	
 	public class BaseSelector implements ISelector
 	{
 		protected var _numberOfSelections:uint = 0;
 		
-		protected var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
+		private var _randomNumberGenerator:IRandomNumberGenerator = new MathRandomNumberGenerator();
 		
 		public function BaseSelector(numberOfSelections:uint = 0) {
 			this._numberOfSelections = numberOfSelections;
@@ -35,12 +35,12 @@ package galia.selection
 			_numberOfSelections = value;
 		}
 		
-		public function get seed():uint {
-			return randomNumberGenerator.seed;
+		public function get randomNumberGenerator():IRandomNumberGenerator {
+			return _randomNumberGenerator;
 		}
 		
-		public function set seed(value:uint):void {
-			randomNumberGenerator.seed = value;
+		public function set randomNumberGenerator(value:IRandomNumberGenerator):void {
+			_randomNumberGenerator = value;
 		}
 	}
 }

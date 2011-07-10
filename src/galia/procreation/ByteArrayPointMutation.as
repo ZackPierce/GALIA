@@ -1,15 +1,15 @@
 package galia.procreation
 {
-	import com.gskinner.utils.Rndm;
-	
 	import galia.base.ByteArrayChromosome;
 	import galia.core.IProcreationOperator;
+	import galia.core.IRandomNumberGenerator;
+	import galia.math.MathRandomNumberGenerator;
 	
 	public class ByteArrayPointMutation implements IProcreationOperator
 	{
 		private var _mutationRate:Number = 0;
 		
-		protected var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
+		public var randomNumberGenerator:IRandomNumberGenerator = new MathRandomNumberGenerator();
 		
 		public function ByteArrayPointMutation(mutationRate:Number = 0) {
 			this.mutationRate = mutationRate;
@@ -47,14 +47,6 @@ package galia.procreation
 		
 		public function set mutationRate(value:Number):void {
 			_mutationRate = value;
-		}
-		
-		public function get seed():uint {
-			return randomNumberGenerator.seed;
-		}
-		
-		public function set seed(value:uint):void {
-			randomNumberGenerator.seed = value;
 		}
 	}
 }

@@ -1,18 +1,18 @@
 package galia.populationEvolution
 {
-	import com.gskinner.utils.Rndm;
-	
 	import galia.base.Specimen;
 	import galia.core.IChromosome;
 	import galia.core.IPopulationEvolutionOperator;
 	import galia.core.IProcreationOperator;
+	import galia.core.IRandomNumberGenerator;
 	import galia.core.ISpecimen;
+	import galia.math.MathRandomNumberGenerator;
 	
 	public class PopulationEvolutionByProcreation implements IPopulationEvolutionOperator
 	{
 		private var _chromosomeProcreationOperator:IProcreationOperator;
 		private var _chromosomeType:Class;
-		private var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
+		public var randomNumberGenerator:IRandomNumberGenerator = new MathRandomNumberGenerator();
 		
 		public function PopulationEvolutionByProcreation(chromosomeProcreationOperator:IProcreationOperator = null) {
 			this.chromosomeProcreationOperator = chromosomeProcreationOperator;

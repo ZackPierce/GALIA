@@ -21,13 +21,5 @@ package galia.seeding
 			}
 			return outputChromosomes;
 		}
-		
-		public function get seed():uint {
-			return byteArrayRandomizedCreation.seed;
-		}
-		
-		public function set seed(value:uint):void {
-			byteArrayRandomizedCreation.seed = value;
-		}
 	}
 }

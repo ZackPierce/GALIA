@@ -1,17 +1,17 @@
 package galia.procreation
 {
-	import com.gskinner.utils.Rndm;
-	
 	import flash.utils.ByteArray;
 	
 	import galia.base.ByteArrayChromosome;
 	import galia.core.IProcreationOperator;
+	import galia.core.IRandomNumberGenerator;
+	import galia.math.MathRandomNumberGenerator;
 	
 	public class ByteArrayMultiPointCrossover implements IProcreationOperator
 	{
 		private var _numberOfCrossoverPoints:uint = 1;
 		
-		private var randomNumberGenerator:Rndm = new Rndm(Math.random()*uint.MAX_VALUE);
+		public var randomNumberGenerator:IRandomNumberGenerator = new MathRandomNumberGenerator();
 		
 		public function ByteArrayMultiPointCrossover(numberOfCrossoverPoints:uint = 1) {
 			_numberOfCrossoverPoints = numberOfCrossoverPoints;
@@ -73,14 +73,6 @@ package galia.procreation
 		
 		public function set numberOfCrossoverPoints(value:uint):void {
 			_numberOfCrossoverPoints = value;
-		}
-		
-		public function get seed():uint {
-			return randomNumberGenerator.seed;
-		}
-		
-		public function set seed(value:uint):void {
-			randomNumberGenerator.seed = value;
 		}
 	}
 }
