@@ -248,7 +248,7 @@ package galia.base
 			var foundStartTime:Date = algorithmLogger.getAlgorithmStartTime();
 			Assert.assertNotNull('logged start time should be non-null', foundStartTime);
 			Assert.assertFalse('logged start time should match original starting time, not current time, if already started', currentTime.time == foundStartTime.time);
-			Assert.assertStrictlyEquals('logged start time should match original starting time', timeA, foundStartTime.time);
+			Assert.assertTrue('logged start time should match original starting time', valueWithinTolerance(foundStartTime.time, timeA, TIME_IMPRECISION_TOLERANCE));
 		}
 		
 		[Test]
@@ -308,7 +308,7 @@ package galia.base
 			algorithmLogger.logAlgorithmStart();
 			algorithmLogger.logAlgorithmStop();
 			var duration:uint = algorithmLogger.getAlgorithmRunningDuration();
-			Assert.assertStrictlyEquals('running duration should be 0 for synchronous immediate start/stop calls', 0, duration);
+			Assert.assertTrue('running duration should be 0 for synchronous immediate start/stop calls', valueWithinTolerance(duration, 0, TIME_IMPRECISION_TOLERANCE/2));
 		}
 		
 		[Test(async)]
@@ -321,7 +321,7 @@ package galia.base
 		private function getAlgorithmRunningDurationAsyncHandler(timerEvent:TimerEvent, passThroughData:Object = null):void {
 			algorithmLogger.logAlgorithmStop();
 			var duration:uint = algorithmLogger.getAlgorithmRunningDuration();
-			Assert.assertTrue('running duration should match difference between start and stop times', valueWithinTolerance(duration, uint(asyncTimer.delay), TIME_IMPRECISION_TOLERANCE));
+			Assert.assertTrue('running duration should match difference between start and stop times', valueWithinTolerance(duration, uint(asyncTimer.delay), TIME_IMPRECISION_TOLERANCE*2));
 			asyncTimer.removeEventListener(TimerEvent.TIMER_COMPLETE, getAlgorithmRunningDurationAsyncHandler);
 		}
 		

@@ -31,19 +31,12 @@ package galia.procreation
 			parents = null;
 			kids = null;
 		}
-		
-		[BeforeClass]
-		public static function setUpBeforeClass():void {
-		}
-		
-		[AfterClass]
-		public static function tearDownAfterClass():void {
-		}
-		
+				
 		[Test]
 		public function testProcreateNullParents():void {
 			kids = byteArrayPointMutation.procreate(null);
-			Assert.assertNotNull('Kids array produced by procreate should never be null', kids); 
+			Assert.assertNotNull('Kids array produced by procreate should never be null', kids);
+			Assert.assertTrue('null parents array leads to an empty output kids array', kids.length == 0);
 		}
 		
 		[Test]
