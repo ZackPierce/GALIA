@@ -12,7 +12,7 @@ package galia.termination
 			this.targetFitnessThreshold = targetFitness;
 		}
 		
-		public function terminationConditionSatisfied(algorithmLogger:IAlgorithmLogger):Boolean {
+		public function isTerminationConditionSatisfied(algorithmLogger:IAlgorithmLogger):Boolean {
 			var topSpecimen:ISpecimen = algorithmLogger ? algorithmLogger.getTopSpecimen() : null;
 			if (topSpecimen && topSpecimen.fitness > targetFitnessThreshold) {
 				return true;

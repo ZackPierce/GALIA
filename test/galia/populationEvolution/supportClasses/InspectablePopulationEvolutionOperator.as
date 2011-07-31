@@ -8,6 +8,7 @@ package galia.populationEvolution.supportClasses
 	
 	public class InspectablePopulationEvolutionOperator implements IPopulationEvolutionOperator
 	{
+		public var numEvolvePopulationCalls:uint = 0;
 		public var evolvePopulationRun:Boolean = false;
 		public var lastEvolvePopulationExecution:uint = 0;
 		
@@ -20,6 +21,7 @@ package galia.populationEvolution.supportClasses
 		
 		public function evolvePopulation(specimens:Array, targetPopulationSize:uint):Array {
 			evolvePopulationRun = true;
+			numEvolvePopulationCalls++;
 			lastEvolvePopulationExecution = (new Date()).time;
 			var population:Array = [];
 			while (population.length < targetPopulationSize) {

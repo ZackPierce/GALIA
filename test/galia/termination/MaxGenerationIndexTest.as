@@ -41,7 +41,7 @@ package galia.termination
 			maxGenerationIndex.maximumGenerationIndex = threshold;
 			population.generationIndex = 15;
 			algorithmLogger.logPopulation(population);
-			var result:Boolean = maxGenerationIndex.terminationConditionSatisfied(algorithmLogger);
+			var result:Boolean = maxGenerationIndex.isTerminationConditionSatisfied(algorithmLogger);
 			Assert.assertTrue('termination condition should be satisfied if at least one population has a generationIndex value exceeding the threshold', result);
 		}
 		
@@ -51,14 +51,14 @@ package galia.termination
 			maxGenerationIndex.maximumGenerationIndex = threshold;
 			population.generationIndex = 0;
 			algorithmLogger.logPopulation(population);
-			var result:Boolean = maxGenerationIndex.terminationConditionSatisfied(algorithmLogger);
+			var result:Boolean = maxGenerationIndex.isTerminationConditionSatisfied(algorithmLogger);
 			Assert.assertFalse('termination condition should not be satisfied no population has a generationIndex value exceeding the threshold', result);
 		}
 		
 		[Test]
 		public function testTerminationConditionSatisfiedNullLogger():void {
 			algorithmLogger = null;
-			var result:Boolean = maxGenerationIndex.terminationConditionSatisfied(algorithmLogger);
+			var result:Boolean = maxGenerationIndex.isTerminationConditionSatisfied(algorithmLogger);
 			Assert.assertFalse('termination condition should not be satisfied if no algorithmLogger is provided', result);
 		}
 	}

@@ -108,6 +108,7 @@ package galia.math
 			assertWithinTolerancePercentageOfTargetValue(numValues*max*0.5, acceptablePercentageTolerance, sum, 'test ints produced');
 		}
 		
+		[Test]
 		public function testIntegerTwoParameters():void {
 			var min:Number = 500;
 			var max:Number = 1000;

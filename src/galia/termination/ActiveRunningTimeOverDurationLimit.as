@@ -11,7 +11,7 @@ package galia.termination
 			this.durationLimitInMilliseconds = durationLimitInMilliseconds;
 		}
 		
-		public function terminationConditionSatisfied(algorithmLogger:IAlgorithmLogger):Boolean {
+		public function isTerminationConditionSatisfied(algorithmLogger:IAlgorithmLogger):Boolean {
 			return algorithmLogger && algorithmLogger.getAlgorithmRunningDuration() > durationLimitInMilliseconds;
 		}
 	}

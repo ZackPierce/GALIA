@@ -11,8 +11,8 @@ package galia.termination
 			this.maximumGenerationIndex = maximumGenerationIndex;
 		}
 		
-		public function terminationConditionSatisfied(algorithmLogger:IAlgorithmLogger):Boolean {
-			return algorithmLogger && algorithmLogger.getMaximumGenerationIndex() > maximumGenerationIndex;
+		public function isTerminationConditionSatisfied(algorithmLogger:IAlgorithmLogger):Boolean {
+			return algorithmLogger && algorithmLogger.getMaximumGenerationIndex() >= maximumGenerationIndex;
 		}
 	}
 }

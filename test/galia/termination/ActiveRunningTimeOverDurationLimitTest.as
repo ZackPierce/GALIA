@@ -50,7 +50,7 @@ package galia.termination
 		}
 		
 		private function testTerminationConditionSatisfiedHandler(event:TimerEvent, passThroughData:Object = null):void {
-			var result:Boolean = maxGenerationIndex.terminationConditionSatisfied(algorithmLogger);
+			var result:Boolean = maxGenerationIndex.isTerminationConditionSatisfied(algorithmLogger);
 			Assert.assertTrue('termination condition should be satisfied if time past starting point exceeds threshold duration', result);
 			asyncTimer.removeEventListener(TimerEvent.TIMER_COMPLETE, testTerminationConditionSatisfiedHandler);
 		}
@@ -65,7 +65,7 @@ package galia.termination
 		}
 		
 		private function testTerminationConditionSatisfiedHandlerNotOverThreshold(event:TimerEvent, passThroughData:Object = null):void {
-			var result:Boolean = maxGenerationIndex.terminationConditionSatisfied(algorithmLogger);
+			var result:Boolean = maxGenerationIndex.isTerminationConditionSatisfied(algorithmLogger);
 			Assert.assertFalse('termination condition should not be satisfied if time past starting point is under threshold duration', result);
 			asyncTimer.removeEventListener(TimerEvent.TIMER_COMPLETE, testTerminationConditionSatisfiedHandlerNotOverThreshold);
 		}
@@ -73,7 +73,7 @@ package galia.termination
 		[Test]
 		public function testTerminationConditionSatisfiedNullLogger():void {
 			algorithmLogger = null;
-			var result:Boolean = maxGenerationIndex.terminationConditionSatisfied(algorithmLogger);
+			var result:Boolean = maxGenerationIndex.isTerminationConditionSatisfied(algorithmLogger);
 			Assert.assertFalse('termination condition should not be satisfied if no algorithmLogger is provided', result);
 		}
 	}

@@ -41,6 +41,7 @@ package galia.procreation
 			return 1;
 		}
 		
+		/** A Number between 0 and 1.0 indicating the fraction of the chromosome that should be mutated */ 
 		public function get mutationRate():Number {
 			return _mutationRate;
 		}

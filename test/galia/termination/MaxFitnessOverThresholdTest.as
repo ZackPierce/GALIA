@@ -41,7 +41,7 @@ package galia.termination
 			maxFitnessOverThreshold.targetFitnessThreshold = threshold;
 			specimen.fitness = 15;
 			algorithmLogger.logPopulation(population);
-			var result:Boolean = maxFitnessOverThreshold.terminationConditionSatisfied(algorithmLogger);
+			var result:Boolean = maxFitnessOverThreshold.isTerminationConditionSatisfied(algorithmLogger);
 			Assert.assertTrue('termination condition should be satisfied if at least one specimen in any population has a fitness value exceeding the threshold', result);
 		}
 		
@@ -51,14 +51,14 @@ package galia.termination
 			maxFitnessOverThreshold.targetFitnessThreshold = threshold;
 			specimen.fitness = 0;
 			algorithmLogger.logPopulation(population);
-			var result:Boolean = maxFitnessOverThreshold.terminationConditionSatisfied(algorithmLogger);
+			var result:Boolean = maxFitnessOverThreshold.isTerminationConditionSatisfied(algorithmLogger);
 			Assert.assertFalse('termination condition should not be satisfied no specimen in any population has a fitness value exceeding the threshold', result);
 		}
 		
 		[Test]
 		public function testTerminationConditionSatisfiedNullLogger():void {
 			algorithmLogger = null;
-			var result:Boolean = maxFitnessOverThreshold.terminationConditionSatisfied(algorithmLogger);
+			var result:Boolean = maxFitnessOverThreshold.isTerminationConditionSatisfied(algorithmLogger);
 			Assert.assertFalse('termination condition should not be satisfied if no algorithmLogger is provided', result);
 		}
 	}
